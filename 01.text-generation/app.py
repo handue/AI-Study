@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import os
 
+#normal prompt example
+
 load_dotenv()
 
 client = OpenAI()

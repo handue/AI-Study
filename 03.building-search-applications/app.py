@@ -39,6 +39,12 @@ def cosine_similarity(a, b):
     # ex) b = [4,5,6], magnitude_b = sqrt(4^2 + 5^2 + 6^2) = sqrt(77)
     return dot_product / (magnitude_a * magnitude_b)
 
+    # if cosine_similarity is close to 1, it means the two vectors are similar
+    # otherwise, if it is close to 0, it means they are dissimilar
+    # -1 means they are opposite
+    # ex) cosine_similarity = 32 / (sqrt(14) * sqrt(77)) = 0.9746318461970762
+    # = it's smiliar, because it's close to 1
+    
 
 document_embeddings = []
 
@@ -70,7 +76,10 @@ for document in document_embeddings:
 
 results.sort(
     key=lambda result: result["similarity"],
+    # lambda = anonymous function, which is a function that doesn't have a name
+    # ex) in JS, result => result.similarity
     reverse=True,
+    # reverse = True -> sort the results in descending order, so that the most similar(bigger value) documents appear first
 )
 
 print("\nSearch results:\n")
